@@ -18,4 +18,5 @@ $data = json_decode($file, true);
         }
     }
 header('Content-Type: text/xml');
+echo "Enter Country name to know its population";
 ?>
