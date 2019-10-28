@@ -9,25 +9,18 @@
     $account_sid = 'AC2e9c00392eaa46066009decbfbfb2a20'; 
     $auth_token = 'db1c9561751d6cc167391321b60d6fa7'; 
     $client = new Client($account_sid, $auth_token); 
+include 'keygen.php'
 	$number = $_POST['From'];
 $body = $_POST['Body'];
-$url = 'https://raw.githubusercontent.com/samayo/country-json/master/src/country-by-population.json';
+$url = 'https://services.hi-techhealth.com:4440/tsa/SIGNON.php';
 $file = file_get_contents($url);
-$data = json_decode($file, true);
-
-    foreach ($data as $character) {  
-        if($character['country'] == $body) {
-          $population = $character['population'];        
-            echo "<Response>
+echo "<Response>
     <Message>
-           Population of " . $body . " is " . $population . "
+           Your token to login is" . random_generator_phone($digits)."."
     </Message>
 </Response>
 ";
-            break;
-        }
-    }
 header('Content-Type: text/xml');
-echo "Enter Country name to know its population";
+
 
 ?>
